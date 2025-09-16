@@ -11,10 +11,10 @@ int main()
 	CurrentHP = PlayerHP - Attack;
 	
 	int Heal = 50;
-
 	int PlayerHeal = CurrentHP + Heal;
 
+	CurrentHP = PlayerHeal;
 
-	cout << PlayerHeal;
+	cout << CurrentHP;
 	return 0;
 }
