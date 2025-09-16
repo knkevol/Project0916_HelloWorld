@@ -8,7 +8,9 @@ int main()
 	int Attack = 20;
 	int CurrentHP = 0;
 
-	CurrentHP = PlayerHP - Attack;
+	int PlayerAttack = PlayerHP - Attack;
+	
+	CurrentHP = PlayerAttack;
 	
 	int Heal = 50;
 	int PlayerHeal = CurrentHP + Heal;
