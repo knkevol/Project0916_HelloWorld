@@ -7,13 +7,27 @@ using namespace std;
 //entry point
 int main()
 {
-	int PlayerX = 0;
-	int PlayerY = 0;
-	bool bIsRunning = true;
+	int PlayerX = 1;
+	int PlayerY = 1;
+	char PlayerShape = 'P';
 
-	while (bIsRunning)
+	int Map[10][10] = {
+		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+	};
+
+	while (true)
 	{
-		int KeyCode = _getch(); // 입력 받는 것을 출력
+		int KeyCode = _getch();
+
 		if (KeyCode == 'w')
 		{
 			PlayerY--;
@@ -30,18 +44,29 @@ int main()
 		{
 			PlayerX++;
 		}
-		else if (KeyCode == 'q')
-		{
-			bIsRunning = false;
-		}
+
 		system("cls");
 
-		COORD Cur;
-		Cur.X = PlayerX;
-		Cur.Y = PlayerY;
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
-
-		cout << "P" << endl;
+		for (int Y = 0; Y < 10; ++Y)
+		{
+			for (int X = 0; X < 10; ++X)
+			{
+				if (PlayerX == X && PlayerY == Y)
+				{
+					cout << PlayerShape;
+				}
+				else if (Map[Y][X] == 0)
+				{
+					cout << ' ';
+				}
+				else if (Map[Y][X] == 1)
+				{
+					cout << '*';
+				}
+			}
+			cout << '\n';
+		}
+		
 	}
 
 	return 0;
